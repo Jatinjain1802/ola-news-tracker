@@ -30,7 +30,7 @@ export default function App() {
     <main>
       <header>
         <h1>Ola News Tracker</h1>
-        <p>Latest English-language coverage of Ola, from open news data.</p>
+        <p>{data?.demo ? "Ola Cabs and Ola Electric news tracker (demo)." : "Latest English-language coverage of Ola."}</p>
         <nav>
           {TABS.map((t) => (
             <button key={t.id} className={t.id === tab ? "on" : ""} onClick={() => setTab(t.id)}>{t.label}</button>
@@ -57,7 +57,9 @@ export default function App() {
           </ul>
         </>
       )}
-      <footer>News data: {data?.source === "NewsData.io" ? <a href="https://newsdata.io/" target="_blank" rel="noreferrer">NewsData.io</a> : <a href="https://www.gdeltproject.org/" target="_blank" rel="noreferrer">GDELT Project</a>}. Headlines link to the original publishers.</footer>
+      <footer>
+        {data?.demo ? "Demo mode: sample data, no real news source connected." : <>News data: {data?.source === "NewsData.io" ? <a href="https://newsdata.io/" target="_blank" rel="noreferrer">NewsData.io</a> : <a href="https://www.gdeltproject.org/" target="_blank" rel="noreferrer">GDELT Project</a>}. Headlines link to the original publishers.</>}
+      </footer>
     </main>
   );
 }
