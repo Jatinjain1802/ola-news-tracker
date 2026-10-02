@@ -56,7 +56,7 @@ export default function App() {
           </ul>
         </>
       )}
-      <footer>News data: <a href="https://www.gdeltproject.org/" target="_blank" rel="noreferrer">GDELT Project</a>. Headlines link to the original publishers.</footer>
+      <footer>News data: {data?.source === "NewsData.io" ? <a href="https://newsdata.io/" target="_blank" rel="noreferrer">NewsData.io</a> : <a href="https://www.gdeltproject.org/" target="_blank" rel="noreferrer">GDELT Project</a>}. Headlines link to the original publishers.</footer>
     </main>
   );
 }
