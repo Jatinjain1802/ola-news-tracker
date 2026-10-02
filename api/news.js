@@ -1,4 +1,4 @@
-import { getNews, TOPICS } from "../lib/gdelt.js";
+import { getNews, TOPICS } from "../lib/news.js";
 import { summarize } from "../lib/summarize.js";
 
 // GET /api/news?topic=cabs|electric&summary=1
