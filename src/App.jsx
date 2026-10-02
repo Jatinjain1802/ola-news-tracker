@@ -41,6 +41,7 @@ export default function App() {
       {error && <p className="note err">{error}</p>}
       {data && (
         <>
+          {data.demo && <p className="demo">DEMO MODE: these are sample headlines, not real news. Live news needs a news API key.</p>}
           <section className="digest">
             <h2>{data.digest?.mode === "ai" ? "AI brief" : "Top headlines"}</h2>
             <pre>{data.digest?.text}</pre>
@@ -48,7 +49,7 @@ export default function App() {
           <ul className="list">
             {data.articles.map((a) => (
               <li key={a.url}>
-                <a href={a.url} target="_blank" rel="noreferrer">{a.title}</a>
+                {a.url ? <a href={a.url} target="_blank" rel="noreferrer">{a.title}</a> : <span className="t">{a.title}</span>}
                 <span>{a.domain} · {ago(a.publishedAt)}</span>
               </li>
             ))}
